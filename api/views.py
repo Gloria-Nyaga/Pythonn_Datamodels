@@ -1,19 +1,20 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+
 from rest_framework.views import APIView
 from student.models import Student
 from classperiods.models import Class_Period
 from classroom.models import Classroom
 from teacher.models import Teacher
 from courses.models import Courses
-# from rest_framework import status
+from rest_framework import status
 from .serializers import StudentSerializers,minimalClass_PeriodSerializer, minimalClassesSerializer, minimalStudentSerializers, minimalTeacherSerializer
-# from .serializers import StudentSerializers, minimalClass_PeriodSerializer, minimalClassesSerializer, minimalStudentSerializers, minimalTeacherSerializer
 from .serializers import TeacherSerializer
 from .serializers import ClassesSerializer
 from .serializers import Class_PeriodSerializer
 from .serializers import CoursesSerializer
 from rest_framework.response import Response
-from rest_framework import status
+from .serializers import minimalStudentSerializers
+
 from dateutil import parser
 from datetime import datetime, timedelta
 
@@ -293,7 +294,7 @@ class Classs_PeriodListView(APIView):
 class Class_PeriodDetailView(APIView):
     def get(self,request,id):
         period=Class_Period.objects.get(id=id)
-        serializer =Class_PeriodSerializer(period)
+        serializer =Class_PeriodSerializer(Class_Period)
         return Response(serializer.data)   
 
     def put(self, request,id):

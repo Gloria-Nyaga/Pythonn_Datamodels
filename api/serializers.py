@@ -1,9 +1,11 @@
+from rest_framework import serializers
 from student.models import Student
 from classroom.models import Classroom
 from courses.models import Courses
 from teacher.models import Teacher
 from classperiods.models import Class_Period
-from rest_framework import serializers
+
+
 
 
 class minimalStudentSerializers(serializers.ModelSerializer):
