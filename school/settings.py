@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'student',
     'teacher',
     'classroom',
-    'courses',
-    'classperiods',
+    'course',
+    'classPeriod',
     'rest_framework',
     'api'
 ]
