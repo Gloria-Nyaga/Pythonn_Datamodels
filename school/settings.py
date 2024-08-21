@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'student',
     'teacher',
     'classroom',
-    'course',
+    'courses',
     'classperiods',
     'rest_framework',
     'api'
@@ -84,7 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mydatabase',
-        'USER': 'myuser',
+        'USER': 'myusername',
         'PASSWORD': 'mypassword',
         'HOST': 'localhost',
         'PORT': '5432'

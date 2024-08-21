@@ -1,7 +1,4 @@
 from django.db import models
-from .models import Student
-
-# Create your models here.
 
 class Classroom(models.Model):
     DAY_CHOICES = [
@@ -22,8 +19,7 @@ class Classroom(models.Model):
     course_day_of_week = models.CharField(max_length=3, choices=DAY_CHOICES)
     seating_arrangement = models.JSONField(default=dict)
     equipment = models.JSONField(default=list)
-    students = models.ManyToManyField(Student)
+    students = models.ManyToManyField('student.Student')  # Use string reference
 
-    objects = models.Manager()
     def __str__(self):
         return f"{self.teacher_allocated} teaches {self.equipment}"

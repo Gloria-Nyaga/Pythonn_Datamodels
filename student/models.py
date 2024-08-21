@@ -1,7 +1,6 @@
 from django.db import models
 from django.db.models.manager import Manager
-
-from classroom.models import Classroom
+from django.apps import apps
 
 
 class Student(models.Model):
@@ -16,7 +15,10 @@ class Student(models.Model):
     contact = models.CharField(max_length=20)
     bio = models.TextField()
     name = models.CharField(max_length=100, default='Default Name')
-    classes = models.ManyToManyField(Classroom)
+    # classes = models.ManyToManyField(Classroom)
+
+    def some_method(self):
+        from classroom.models import Classroom 
 
 
     def __str__(self):
